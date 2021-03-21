@@ -1,0 +1,15 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
+build_property.RootNamespace = RfidAPI
+build_property.RootNamespace = RfidAPI
+build_property.ProjectDir = F:\.net_core\RfidAPI\RfidAPI\
+build_property.RazorLangVersion = 5.0
+build_property.MSBuildProjectDirectory = F:\.net_core\RfidAPI\RfidAPI
+build_property.DesignTimeBuild = 
+build_property._RazorReferenceAssemblyTagHelpersOutputPath = F:\.net_core\RfidAPI\RfidAPI\obj\Debug\net6.0\RazorTagHelper.refs.out.cache
+build_property._RazorSourceGeneratorDebug = 
+build_property._RazorSourceGeneratorLog =
