@@ -8,12 +8,14 @@ namespace RfidAPI.Models
     public class User
     {
         [Key]
-        public int key { get; set; }
+        public int UserId { get; set; }
         
-        public string name { get; set; }
+        public string UserName { get; set; }
         public bool gender { get; set; }
-        public int permission { get; set; }
+        public int permissionId { get; set; }
         public string faceInfo { get; set; }
+        [ForeignKey("permissionId")]
+        public virtual Permission permission { get; set; }
         
     }
 }

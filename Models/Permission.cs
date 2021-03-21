@@ -6,7 +6,7 @@ namespace RfidAPI.Models
     [Table("Permission")]
     public class Permission
     {
-        [Key] public int id { get; set; }
+        [Key] public int PermissionId { get; set; }
         public string role_name { get; set; }
         
     }

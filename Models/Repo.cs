@@ -7,8 +7,10 @@ namespace RfidAPI.Models
     public class Repo
     {
         [Key]
-        public int id { get; set; }
+        public int RepoId { get; set; }
         public string info { get; set; }
         public int managerId { get; set; }
+        [ForeignKey("managerId")]
+        public virtual User manager { get; set; }
     }
 }

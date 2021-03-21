@@ -25,6 +25,9 @@ namespace RfidAPI.Migrations
                     b.Property<string>("deviceName")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("deviceUID")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("status")
                         .HasColumnType("INTEGER");
 
@@ -35,11 +38,11 @@ namespace RfidAPI.Migrations
 
             modelBuilder.Entity("RfidAPI.Models.Log", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("LogId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("from_id")
+                    b.Property<int>("from_UserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("from_time")
@@ -54,34 +57,38 @@ namespace RfidAPI.Migrations
                     b.Property<int>("status")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("to_id")
+                    b.Property<int>("to_UserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("to_time")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("id");
+                    b.HasKey("LogId");
+
+                    b.HasIndex("from_UserId");
+
+                    b.HasIndex("to_UserId");
 
                     b.ToTable("Log");
                 });
 
             modelBuilder.Entity("RfidAPI.Models.Permission", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("PermissionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("role_name")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("id");
+                    b.HasKey("PermissionId");
 
                     b.ToTable("Permission");
                 });
 
             modelBuilder.Entity("RfidAPI.Models.Repo", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("RepoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -91,16 +98,21 @@ namespace RfidAPI.Migrations
                     b.Property<int>("managerId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("id");
+                    b.HasKey("RepoId");
+
+                    b.HasIndex("managerId");
 
                     b.ToTable("Repo");
                 });
 
             modelBuilder.Entity("RfidAPI.Models.User", b =>
                 {
-                    b.Property<int>("key")
+                    b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("faceInfo")
                         .HasColumnType("TEXT");
@@ -108,15 +120,55 @@ namespace RfidAPI.Migrations
                     b.Property<bool>("gender")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("name")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("permission")
+                    b.Property<int>("permissionId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("key");
+                    b.HasKey("UserId");
+
+                    b.HasIndex("permissionId");
 
                     b.ToTable("User");
+                });
+
+            modelBuilder.Entity("RfidAPI.Models.Log", b =>
+                {
+                    b.HasOne("RfidAPI.Models.User", "FromUser")
+                        .WithMany()
+                        .HasForeignKey("from_UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RfidAPI.Models.User", "ToUser")
+                        .WithMany()
+                        .HasForeignKey("to_UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("FromUser");
+
+                    b.Navigation("ToUser");
+                });
+
+            modelBuilder.Entity("RfidAPI.Models.Repo", b =>
+                {
+                    b.HasOne("RfidAPI.Models.User", "manager")
+                        .WithMany()
+                        .HasForeignKey("managerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("manager");
+                });
+
+            modelBuilder.Entity("RfidAPI.Models.User", b =>
+                {
+                    b.HasOne("RfidAPI.Models.Permission", "permission")
+                        .WithMany()
+                        .HasForeignKey("permissionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("permission");
                 });
 #pragma warning restore 612, 618
         }
