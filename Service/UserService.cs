@@ -10,7 +10,8 @@ namespace RfidAPI.Service
         bool CreateUser(User user);
 
         Task<ActionResult<IEnumerable<User>>> GetUsers();
-        
-        
+
+        User GetUserByFaceInfo(string faceinfo);
+
     }
 }
