@@ -1,7 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace RfidAPI.Models
 {
-    public class Equipement
+    [Table("Equipment")]
+    public class Equipment
     {
         [Key]
         public int deviceId { get; set; }

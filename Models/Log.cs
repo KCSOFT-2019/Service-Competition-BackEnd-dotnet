@@ -1,9 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.VisualBasic;
 
 namespace RfidAPI.Models
 {
+    
     public enum RequestStatus
     {
         ok,
@@ -11,6 +13,7 @@ namespace RfidAPI.Models
         notYet
         
     }
+    [Table("Log")]
     public class Log
     {
         [Key] public int id { get; set; }
