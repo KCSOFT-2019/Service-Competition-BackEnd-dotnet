@@ -13,5 +13,7 @@ namespace RfidAPI.Service
 
         User GetUserByFaceInfo(string faceinfo);
 
+        int GetRole(int id);
+
     }
 }

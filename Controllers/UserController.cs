@@ -16,7 +16,7 @@ namespace RfidAPI.Controllers
         }
 
         [HttpPost]
-        [Route("add")]
+        [Route("api/user/add")]
         public ActionResult<string> Create(User user)
         {
             if (string.IsNullOrEmpty(user.UserName.Trim()))
@@ -27,16 +27,16 @@ namespace RfidAPI.Controllers
             var result = _userService.CreateUser(user);
             if (result)
             {
-                return "create successfully";
+                return "create user successfully";
             }
             else
             {
-                return "create unsuccessfully";
+                return "create user unsuccessfully";
             }
         }
 
         [HttpGet]
-        [Route("getAll")]
+        [Route("api/user/getAll")]
         public Task<ActionResult<IEnumerable<User>>> Gets()
         {
             return _userService.GetUsers();

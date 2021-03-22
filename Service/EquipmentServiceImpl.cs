@@ -21,6 +21,8 @@ namespace RfidAPI.Service
             return _Context.SaveChanges() > 0;
         }
 
+        
+        
         public async Task<ActionResult<IEnumerable<Equipment>>> getAllDivices()
         {
             return await _Context.Equipments.ToListAsync();

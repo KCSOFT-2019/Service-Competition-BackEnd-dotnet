@@ -35,5 +35,10 @@ namespace RfidAPI.Service
             var user = _context.Users.SingleOrDefault(s => s.faceInfo == faceinfo);
             return user;
         }
+
+        public int GetRole(int id)
+        {
+            return _context.Users.SingleOrDefault(S => S.UserId == id).permissionId;
+        }
     }
 }
