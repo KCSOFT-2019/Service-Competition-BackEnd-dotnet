@@ -14,6 +14,8 @@ using Microsoft.OpenApi.Models;
 using RfidAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Sqlite;
+using RfidAPI.Models;
+using RfidAPI.Service;
 
 namespace RfidAPI
 {
@@ -30,6 +32,11 @@ namespace RfidAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(opt => opt.UseSqlite(Configuration.GetConnectionString("DataContext")));
+            services.AddScoped<UserService, UserServiceImpl>();
+            services.AddScoped<RepoService, RepoServiceImpl>();
+            services.AddScoped<PermissionService, PermissionServiceImpl>();
+            services.AddScoped<LogService, LogServiceImpl>();
+            services.AddScoped<EquipmentService, EquipmentServiceImpl>();
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "RfidAPI", Version = "v1"}); });
         }
