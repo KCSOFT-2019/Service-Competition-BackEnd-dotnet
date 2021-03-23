@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = RfidAPI
+build_property.ProjectDir = F:\.net_core\RfidAPI\RfidAPI\

@@ -18,6 +18,11 @@ namespace RfidAPI
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                    //webBuilder.UseUrls("http://*:31905","https://*:31908");
+                    webBuilder.UseUrls("http://*:31905");
+                });
     }
 }
