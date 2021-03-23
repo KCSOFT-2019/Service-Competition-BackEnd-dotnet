@@ -10,6 +10,12 @@ namespace RfidAPI.Controllers
     {
         private readonly EquipmentService _equipmentService;
 
+
+        public EquipmentController(EquipmentService equipmentService)
+        {
+            _equipmentService = equipmentService;
+        }
+
         [HttpPost]
         [Route("api/equipment/add")]
         public ActionResult<string> Create(Equipment equipment)
