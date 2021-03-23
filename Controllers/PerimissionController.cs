@@ -11,6 +11,12 @@ namespace RfidAPI.Controllers
     {
         private readonly PermissionService _permissionService;
 
+        public PerimissionController(PermissionService permissionService)
+        {
+            _permissionService = permissionService;
+        }
+        
+        
         [HttpPost]
         [Route("api/permission/add")]
         public ActionResult<string> Create(Permission permission)
