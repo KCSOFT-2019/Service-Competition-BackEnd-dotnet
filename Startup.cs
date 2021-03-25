@@ -16,6 +16,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Sqlite;
 using RfidAPI.Models;
 using RfidAPI.Service;
+using Microsoft.AspNetCore.Authentication;
 
 namespace RfidAPI
 {
@@ -32,6 +33,10 @@ namespace RfidAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(opt => opt.UseSqlite(Configuration.GetConnectionString("DataContext")));
+            services.AddDbContext<LibraryDbContext>(
+                config => config.UseSqlite(Configuration.GetConnectionString("DefaultContext")));
+                //optionBuilder => optionBuilder.MigrationAssembly(typeof(Startup).Assembly.GetName().Name)));
+                
             services.AddScoped<UserService, UserServiceImpl>();
             services.AddScoped<RepoService, RepoServiceImpl>();
             services.AddScoped<PermissionService, PermissionServiceImpl>();
@@ -39,6 +44,8 @@ namespace RfidAPI
             services.AddScoped<EquipmentService, EquipmentServiceImpl>();
             services.AddControllers();
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "RfidAPI", Version = "v1"}); });
+            services.AddIdentity<IUser, IRole>()
+                .AddEntityFrameworkStores<LibraryDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

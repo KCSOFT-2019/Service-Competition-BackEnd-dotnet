@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using Microsoft.AspNetCore.Identity;
 
 namespace RfidAPI.Models
 {
     [Table("User")]
-    public class User
+    public class User 
     {
         [Key]
         public int UserId { get; set; }

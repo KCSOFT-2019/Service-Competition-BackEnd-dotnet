@@ -52,3 +52,4 @@ F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net6.0\runtimes\win-arm\native\e_sqlite3.
 F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net6.0\runtimes\win-arm64\native\e_sqlite3.dll
 F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net6.0\runtimes\win-x64\native\e_sqlite3.dll
 F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net6.0\runtimes\win-x86\native\e_sqlite3.dll
+F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
