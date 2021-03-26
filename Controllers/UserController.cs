@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RfidAPI.Models;
@@ -16,7 +17,8 @@ namespace RfidAPI.Controllers
         {
             _userService = userService;
         }
-
+        
+        [AllowAnonymous]
         [HttpPost]
         [Route("api/user/add")]
         public ActionResult<string> Create(User user)
@@ -36,7 +38,7 @@ namespace RfidAPI.Controllers
                 return "create user unsuccessfully";
             }
         }
-
+        
         [HttpGet]
         [Route("api/user/getAll")]
         public Task<ActionResult<IEnumerable<User>>> Gets()

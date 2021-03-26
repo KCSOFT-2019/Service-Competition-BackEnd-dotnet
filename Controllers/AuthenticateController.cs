@@ -55,6 +55,7 @@ namespace RfidAPI.Controllers
         public async Task<IActionResult> GenerateTokenAsync(LoginUser loginUser)
         {
             var user = await UserManager.FindByNameAsync(loginUser.UserName);
+            
             if (user == null)
             {
                 return Unauthorized();
@@ -91,7 +92,7 @@ namespace RfidAPI.Controllers
                 issuer: tokenConfigSection["Issuer"],
                 audience: tokenConfigSection["Audience"],
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(3),
+                expires: DateTime.Now.AddMinutes(55),
                 signingCredentials: signCredential
             );
 

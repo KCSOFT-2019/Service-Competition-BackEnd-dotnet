@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,6 +19,7 @@ using RfidAPI.Models;
 using RfidAPI.Service;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 namespace RfidAPI
 {
@@ -27,7 +29,7 @@ namespace RfidAPI
         {
             Configuration = configuration;
         }
-
+        
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -47,9 +49,31 @@ namespace RfidAPI
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "RfidAPI", Version = "v1"}); });
             services.AddIdentity<IUser, IRole>()
                 .AddEntityFrameworkStores<LibraryDbContext>();
-            /*services.AddAuthentication(defaultScheme: JwtBearerDefaults.AuthenticationScheme)
-                .AddCookie();*/
-            //.AddJwtBearer();
+            var tokenConfigSection = Configuration.GetSection("Security:Token");
+            services.AddAuthentication(c =>
+                {
+                    c.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    c.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(c =>
+                {
+                    c.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        
+                        ValidAudience = tokenConfigSection["Audience"],
+                        ValidIssuer = tokenConfigSection["Issuer"],
+                        IssuerSigningKey =
+                            new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenConfigSection["Key"])),
+                        ClockSkew = TimeSpan.Zero
+                    };
+                
+        });
+            
 
         }
 
@@ -67,8 +91,9 @@ namespace RfidAPI
             
             app.UseRouting();
 
-            app.UseAuthorization();
             app.UseAuthentication();
+            
+            app.UseAuthorization();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
