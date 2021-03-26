@@ -17,6 +17,7 @@ using Microsoft.EntityFrameworkCore.Sqlite;
 using RfidAPI.Models;
 using RfidAPI.Service;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace RfidAPI
 {
@@ -35,8 +36,8 @@ namespace RfidAPI
             services.AddDbContext<DataContext>(opt => opt.UseSqlite(Configuration.GetConnectionString("DataContext")));
             services.AddDbContext<LibraryDbContext>(
                 config => config.UseSqlite(Configuration.GetConnectionString("DefaultContext")));
-                //optionBuilder => optionBuilder.MigrationAssembly(typeof(Startup).Assembly.GetName().Name)));
-                
+            //optionBuilder => optionBuilder.MigrationAssembly(typeof(Startup).Assembly.GetName().Name)));
+
             services.AddScoped<UserService, UserServiceImpl>();
             services.AddScoped<RepoService, RepoServiceImpl>();
             services.AddScoped<PermissionService, PermissionServiceImpl>();
@@ -46,6 +47,10 @@ namespace RfidAPI
             services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "RfidAPI", Version = "v1"}); });
             services.AddIdentity<IUser, IRole>()
                 .AddEntityFrameworkStores<LibraryDbContext>();
+            /*services.AddAuthentication(defaultScheme: JwtBearerDefaults.AuthenticationScheme)
+                .AddCookie();*/
+            //.AddJwtBearer();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,7 +68,7 @@ namespace RfidAPI
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseAuthentication();
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }

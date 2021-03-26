@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RfidAPI.Models;
 using RfidAPI.Service;
 
 namespace RfidAPI.Controllers
 {
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly UserService _userService;
