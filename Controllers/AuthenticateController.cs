@@ -54,7 +54,7 @@ namespace RfidAPI.Controllers
         [HttpPost("token2", Name = nameof(GenerateTokenAsync))]
         public async Task<IActionResult> GenerateTokenAsync(LoginUser loginUser)
         {
-            var user = await UserManager.FindByEmailAsync(loginUser.UserName);
+            var user = await UserManager.FindByNameAsync(loginUser.UserName);
             if (user == null)
             {
                 return Unauthorized();
