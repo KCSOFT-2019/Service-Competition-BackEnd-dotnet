@@ -54,3 +54,15 @@ F:\.net_core\RfidAPI\RfidAPI\obj\Debug\net5.0\RfidAPI.dll
 F:\.net_core\RfidAPI\RfidAPI\obj\Debug\net5.0\ref\RfidAPI.dll
 F:\.net_core\RfidAPI\RfidAPI\obj\Debug\net5.0\RfidAPI.pdb
 F:\.net_core\RfidAPI\RfidAPI\obj\Debug\net5.0\RfidAPI.genruntimeconfig.cache
+F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll

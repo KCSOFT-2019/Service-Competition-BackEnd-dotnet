@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BIlHXwuTv4wvBxmXLuBL/rrxdyN5zJrJIuA6wm8scKUtD8T628DTTPpJffeB85xOSctCe6DA+mm4+C7UjP6WmQ==",
+  "dgSpecHash": "pOwKkstmdb0PpLn4TPIaEWxlOn/byvHCAr5ZiM/uSrlQCWSowdsX6xvxX2Aa8lEkXLLb2BliOUACi0nPTOW6Hw==",
   "success": true,
   "projectFilePath": "F:\\.net_core\\RfidAPI\\RfidAPI\\RfidAPI.csproj",
   "expectedPackageFiles": [
@@ -52,7 +52,8 @@
     "C:\\Users\\lenovo\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.7.1\\system.identitymodel.tokens.jwt.6.7.1.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
-    "C:\\Users\\lenovo\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+    "C:\\Users\\lenovo\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.3\\microsoft.netcore.app.host.win-x64.5.0.3.nupkg.sha512"
   ],
   "logs": []
 }
