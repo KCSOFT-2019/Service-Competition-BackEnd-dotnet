@@ -46,6 +46,16 @@ namespace RfidAPI
             services.AddScoped<LogService, LogServiceImpl>();
             services.AddScoped<EquipmentService, EquipmentServiceImpl>();
             services.AddScoped<DeviceCountService,DeviceCountServiceImpl>();
+            services.AddCors(c =>
+            {
+                c.AddPolicy("all", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials();
+                });
+            });
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
