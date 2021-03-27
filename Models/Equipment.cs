@@ -11,5 +11,10 @@ namespace RfidAPI.Models
         public string deviceName { get; set; }
         public string deviceUID { get; set; }
         public int status { get; set; }
+        
+        public string imageUrl { get; set; }
+        
+        
+        
     }
 }

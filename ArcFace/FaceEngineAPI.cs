@@ -5,6 +5,7 @@ namespace RfidAPI.ArcFace
 {
     public class FaceEngineAPI
     {
+        public static IntPtr hEngine = IntPtr.Zero;
         [DllImport("libarcsoft_face_engine.dll")]
         public static extern long ASFGetActiveFileInfo(ArcFaceEngine.ASF_ActiveFileInfo asfActiveFileInfo);
 

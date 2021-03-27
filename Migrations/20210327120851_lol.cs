@@ -8,6 +8,21 @@ namespace RfidAPI.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "DeviceCount",
+                columns: table => new
+                {
+                    deviceCountId = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    deviceName = table.Column<string>(type: "TEXT", nullable: true),
+                    nowCount = table.Column<int>(type: "INTEGER", nullable: false),
+                    totalCount = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DeviceCount", x => x.deviceCountId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Equipment",
                 columns: table => new
                 {
@@ -15,7 +30,8 @@ namespace RfidAPI.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     deviceName = table.Column<string>(type: "TEXT", nullable: true),
                     deviceUID = table.Column<string>(type: "TEXT", nullable: true),
-                    status = table.Column<int>(type: "INTEGER", nullable: false)
+                    status = table.Column<int>(type: "INTEGER", nullable: false),
+                    imageUrl = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -131,6 +147,9 @@ namespace RfidAPI.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "DeviceCount");
+
             migrationBuilder.DropTable(
                 name: "Equipment");
 

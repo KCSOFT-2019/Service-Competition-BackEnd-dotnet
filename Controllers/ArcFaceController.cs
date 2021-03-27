@@ -50,13 +50,13 @@ namespace RfidAPI.Controllers
             int detectFaceMaxNum,
             int combinedMask)
         {
-            IntPtr handle = IntPtr.Zero;
+            //IntPtr handle = IntPtr.Zero;
             var res = FaceEngineAPI.ASFInitEngine(
                 asfDetectMode,
                 arcSoftFaceOrientPriority,
                 detectFaceScaleVal,
                 detectFaceMaxNum,
-                combinedMask, ref handle);
+                combinedMask, ref FaceEngineAPI.hEngine);
             return res;
         }
     }

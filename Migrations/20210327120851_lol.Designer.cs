@@ -9,7 +9,7 @@ using RfidAPI.Data;
 namespace RfidAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210321080841_lol")]
+    [Migration("20210327120851_lol")]
     partial class lol
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,6 +17,26 @@ namespace RfidAPI.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.4");
+
+            modelBuilder.Entity("RfidAPI.Models.DeviceCount", b =>
+                {
+                    b.Property<int?>("deviceCountId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("deviceName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("nowCount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("totalCount")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("deviceCountId");
+
+                    b.ToTable("DeviceCount");
+                });
 
             modelBuilder.Entity("RfidAPI.Models.Equipment", b =>
                 {
@@ -28,6 +48,9 @@ namespace RfidAPI.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("deviceUID")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("imageUrl")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("status")

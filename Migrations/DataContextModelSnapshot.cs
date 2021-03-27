@@ -16,6 +16,26 @@ namespace RfidAPI.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "5.0.4");
 
+            modelBuilder.Entity("RfidAPI.Models.DeviceCount", b =>
+                {
+                    b.Property<int?>("deviceCountId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("deviceName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("nowCount")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("totalCount")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("deviceCountId");
+
+                    b.ToTable("DeviceCount");
+                });
+
             modelBuilder.Entity("RfidAPI.Models.Equipment", b =>
                 {
                     b.Property<int>("deviceId")
@@ -26,6 +46,9 @@ namespace RfidAPI.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("deviceUID")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("imageUrl")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("status")

@@ -45,6 +45,7 @@ namespace RfidAPI
             services.AddScoped<PermissionService, PermissionServiceImpl>();
             services.AddScoped<LogService, LogServiceImpl>();
             services.AddScoped<EquipmentService, EquipmentServiceImpl>();
+            services.AddScoped<DeviceCountService,DeviceCountServiceImpl>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
