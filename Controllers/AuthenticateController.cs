@@ -13,7 +13,10 @@ using Microsoft.IdentityModel.Tokens;
 using RfidAPI.Models;
 
 namespace RfidAPI.Controllers
-{
+{   
+    /// <summary>
+    /// 登录注册验证
+    /// </summary>
     [Route("auth")]
     [ApiController]
     public class AuthenticateController : ControllerBase
@@ -31,7 +34,11 @@ namespace RfidAPI.Controllers
         public RoleManager<IRole> RoleManager { get; }
         public  UserManager<IUser> UserManager { get; }
 
-
+        /// <summary>
+        /// 注册用户
+        /// </summary>
+        /// <param name="用户注册模型"></param>
+        /// <returns></returns>
         [HttpPost("register", Name = nameof(AddUserAsync))]
         public async Task<IActionResult> AddUserAsync(RegisterUser registerUser)
         {
@@ -51,6 +58,11 @@ namespace RfidAPI.Controllers
                 return BadRequest(ModelState);
             }
         }
+        /// <summary>
+        /// 用户登录
+        /// </summary>
+        /// <param name="loginUser"></param>
+        /// <returns></returns>
         [HttpPost("token2", Name = nameof(GenerateTokenAsync))]
         public async Task<IActionResult> GenerateTokenAsync(LoginUser loginUser)
         {

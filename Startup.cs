@@ -46,7 +46,11 @@ namespace RfidAPI
             services.AddScoped<LogService, LogServiceImpl>();
             services.AddScoped<EquipmentService, EquipmentServiceImpl>();
             services.AddControllers();
-            services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo {Title = "RfidAPI", Version = "v1"}); });
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo {Title = "RfidAPI", Version = "v1"}); 
+                c.IncludeXmlComments(AppDomain.CurrentDomain.BaseDirectory+"/RfidAPI.xml");
+            });
             services.AddIdentity<IUser, IRole>()
                 .AddEntityFrameworkStores<LibraryDbContext>();
             var tokenConfigSection = Configuration.GetSection("Security:Token");

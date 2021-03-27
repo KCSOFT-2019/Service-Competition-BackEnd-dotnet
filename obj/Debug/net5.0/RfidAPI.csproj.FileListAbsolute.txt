@@ -66,3 +66,4 @@ F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.
 F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+F:\.net_core\RfidAPI\RfidAPI\bin\Debug\net5.0\RfidAPI.xml
