@@ -12,5 +12,7 @@ namespace RfidAPI.Models
         public int managerId { get; set; }
         [ForeignKey("managerId")]
         public virtual User manager { get; set; }
+
+        
     }
 }

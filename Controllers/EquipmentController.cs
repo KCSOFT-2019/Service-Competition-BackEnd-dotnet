@@ -29,6 +29,7 @@ namespace RfidAPI.Controllers
         public Task<ActionResult<IEnumerable<Equipment>>> GetAll()
         {
             return _equipmentService.getAllDivices();
+            
         }
     }
 }

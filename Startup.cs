@@ -52,8 +52,7 @@ namespace RfidAPI
                 {
                     builder.AllowAnyOrigin()
                         .AllowAnyHeader()
-                        .AllowAnyMethod()
-                        .AllowCredentials();
+                        .AllowAnyMethod();
                 });
             });
             services.AddControllers();
@@ -103,7 +102,7 @@ namespace RfidAPI
             app.UseSwagger();
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RfidAPI v1"));
             //app.UseHttpsRedirection();
-            
+            app.UseCors("all");//跟上面的字符串一样
             app.UseRouting();
 
             app.UseAuthentication();

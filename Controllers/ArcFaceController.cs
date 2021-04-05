@@ -59,5 +59,15 @@ namespace RfidAPI.Controllers
                 combinedMask, ref FaceEngineAPI.hEngine);
             return res;
         }
+        
+        
+        /*public ActionResult<long> ASFDetectFaces(IntPtr hEngine,
+            int width,
+            int height,
+            int format,
+            IntPtr imgData,
+            ArcFaceEngine.ASF_MultiFaceInfo detectedFaces,
+            ArcFaceEngine.ASF_DetectModel detectModel = ArcFaceEngine.ASF_DetectModel.ASF_DETECT_MODEL_RGB
+        )*/
     }
 }
