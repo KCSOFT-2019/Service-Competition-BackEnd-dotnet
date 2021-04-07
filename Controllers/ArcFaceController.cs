@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http.Json;
 using System.Runtime.InteropServices;
 using System.Text;
 using Microsoft.AspNetCore.Mvc;
@@ -69,5 +70,38 @@ namespace RfidAPI.Controllers
             ArcFaceEngine.ASF_MultiFaceInfo detectedFaces,
             ArcFaceEngine.ASF_DetectModel detectModel = ArcFaceEngine.ASF_DetectModel.ASF_DETECT_MODEL_RGB
         )*/
+        [HttpGet("getActiveFileInfo")]
+        public ActionResult<string> getActiveFileInfo()
+        {
+            /*{
+                var point = new ArcFaceEngine.ASF_ActiveFileInfo();//IntPtr();
+            
+                unsafe
+                {
+                    FaceEngineAPI.ASFGetActiveFileInfo(ref point);
+                }
+            
+                //var info = Marshal.PtrToStructure<ArcFaceEngine.ASF_ActiveFileInfo>(point);
+                return Marshal.PtrToStringAnsi(point.sdkVersion);
+            }*/
+
+
+            {
+                unsafe
+                {
+
+
+                    IntPtr point = Marshal.AllocCoTaskMem(sizeof(ArcFaceEngine.ASF_ActiveFileInfo));
+
+                    FaceEngineAPI.ASFGetActiveFileInfo(point);
+
+                    var file = (ArcFaceEngine.ASF_ActiveFileInfo) Marshal.PtrToStructure(point, typeof(ArcFaceEngine.ASF_ActiveFileInfo));
+                    var sdkver =  Marshal.PtrToStringAnsi(file.sdkVersion);
+                    Marshal.FreeCoTaskMem(point);
+                    return sdkver;
+                    
+                }
+            }
+        }
     }
 }

@@ -24,9 +24,11 @@ namespace RfidAPI.ArcFace
             public IntPtr CopyRight;
 
         }
-        
+        #nullable enable
         public struct ASF_ActiveFileInfo
         {
+            
+
             public IntPtr startTime;
             public IntPtr endTime;
             public IntPtr activeKey;
@@ -36,6 +38,7 @@ namespace RfidAPI.ArcFace
             public IntPtr sdkKey;
             public IntPtr sdkVersion;
             public IntPtr fileVersion;
+            
         }
 
         public struct MRECT
