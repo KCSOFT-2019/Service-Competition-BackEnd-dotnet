@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿/*using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +19,7 @@ namespace RfidAPI.Service
         }
         public bool CreateUser(User user)
         {
-            _context.Users.Add(user);
+            _context.IUsers.Add(user);
             return _context.SaveChanges() > 0;
             throw new System.NotImplementedException();
         }
@@ -41,4 +41,4 @@ namespace RfidAPI.Service
             return _context.Users.SingleOrDefault(S => S.UserId == id).permissionId;
         }
     }
-}
+}*/

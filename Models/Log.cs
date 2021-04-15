@@ -18,8 +18,8 @@ namespace RfidAPI.Models
     {
         [Key] public int LogId { get; set; }
         
-        public int from_UserId { get; set; }
-        public int to_UserId { get; set; }
+        public string from_UserId { get; set; }
+        public string to_UserId { get; set; }
         public int status { get; set; }//
         public RequestStatus requestStatus { get; set; }
         public string log { get; set; }
@@ -27,8 +27,8 @@ namespace RfidAPI.Models
         public DateTime to_time { get; set; }
         
         [ForeignKey("from_UserId")]
-        public virtual User FromUser { get; set; } 
+        public virtual IUser FromUser { get; set; } 
         [ForeignKey("to_UserId")]
-        public virtual User ToUser { get; set; }
+        public virtual IUser ToUser { get; set; }
     }
 }

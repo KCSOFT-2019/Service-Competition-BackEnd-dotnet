@@ -12,10 +12,10 @@ namespace RfidAPI.Service
 
         Task<ActionResult<IEnumerable<Log>>> getAllResult();
 
-        public bool PutBorrowRequest(string faceinfo, int from_id, string device_UID, DateTime from_time,
-            DateTime to_time, int status, string log);
+        public bool PutBorrowRequest(int status,string faceinfo, string from_id, string device_UID, DateTime from_time,
+            DateTime to_time, string log);
         
-        public bool PutBorrowRequest(int to_id, int from_id, string device_UID, DateTime from_time,
+        public bool PutBorrowRequest(string to_id, string from_id, string device_UID, DateTime from_time,
             DateTime to_time, int status, string log);
     }
 }

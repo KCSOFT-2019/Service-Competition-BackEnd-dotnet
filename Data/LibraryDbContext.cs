@@ -13,5 +13,16 @@ namespace RfidAPI.Data
         }
         public DbSet<IUser> IUsers { get; set; }
         public DbSet<IRole> Iroles { get; set; }
+        
+        /*
+        public DbSet<Repo> Repos { get; set; }
+        public DbSet<Permission> Permissions { get; set; }
+        public DbSet<Log>  Logs { get; set; }
+        public DbSet<Equipment> Equipments { get; set; }
+        */
+        
+        public DbSet<DeviceCount> DeviceCounts { get; set; }
+        
+        public DbSet<Log>  Logs { get; set; }
     }
 }

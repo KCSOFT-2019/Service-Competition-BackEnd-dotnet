@@ -4,6 +4,6 @@ namespace RfidAPI.Models
 {
     public class IUser : IdentityUser
     {
-        
+        public string faceInfo { get; set; }
     }
 }

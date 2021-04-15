@@ -11,9 +11,9 @@ namespace RfidAPI.Service
 {
     public class DeviceCountServiceImpl : DeviceCountService
     {
-        public DataContext _Context;
+        public LibraryDbContext _Context;//DataContext _Context;
 
-        public DeviceCountServiceImpl(DataContext dataContext)
+        public DeviceCountServiceImpl(LibraryDbContext dataContext)
         {
             _Context = dataContext;
         }

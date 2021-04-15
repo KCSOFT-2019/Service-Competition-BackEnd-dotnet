@@ -10,12 +10,12 @@ namespace RfidAPI.Data
         {
             
         }
-        public DbSet<User> Users { get; set; }
+        //public DbSet<User> Users { get; set; }
         public DbSet<Repo> Repos { get; set; }
         public DbSet<Permission> Permissions { get; set; }
-        public DbSet<Log>  Logs { get; set; }
+        //public DbSet<Log>  Logs { get; set; }
         public DbSet<Equipment> Equipments { get; set; }
         
-        public DbSet<DeviceCount> DeviceCounts { get; set; }
+        //public DbSet<DeviceCount> DeviceCounts { get; set; }
     }
 }

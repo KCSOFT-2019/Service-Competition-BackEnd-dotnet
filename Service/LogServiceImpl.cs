@@ -11,8 +11,8 @@ namespace RfidAPI.Service
 {
     public class LogServiceImpl : LogService
     {
-        public DataContext _Context;
-        public LogServiceImpl(DataContext context)
+        public LibraryDbContext _Context;
+        public LogServiceImpl(LibraryDbContext context)
         {
             _Context = context;
         }
@@ -30,10 +30,10 @@ namespace RfidAPI.Service
 
        
 
-        public bool PutBorrowRequest(string faceinfo, int from_id, string device_UID, DateTime from_time, DateTime to_time, int status, string log)
+        public bool PutBorrowRequest(int status, string faceinfo, string from_id, string device_UID, DateTime from_time, DateTime to_time, string log)
         {
 
-            var to_id = _Context.Users.SingleOrDefault(s => s.faceInfo == faceinfo).UserId;
+            var to_id = _Context.IUsers.SingleOrDefault(s => s.faceInfo == faceinfo).Id;
             
             var logg = new Log();
             logg.from_UserId = from_id;
@@ -51,7 +51,7 @@ namespace RfidAPI.Service
 
         }
 
-        public bool PutBorrowRequest(int to_id, int from_id, string device_UID, DateTime from_time, DateTime to_time, int status, string log)
+        public bool PutBorrowRequest(string to_id, string from_id, string device_UID, DateTime from_time, DateTime to_time, int status, string log)
         {
             //var to_id = _Context.Users.SingleOrDefault(s => s.faceInfo == faceinfo).UserId;
             

@@ -40,7 +40,7 @@ namespace RfidAPI
                 config => config.UseSqlite(Configuration.GetConnectionString("DefaultContext")));
             //optionBuilder => optionBuilder.MigrationAssembly(typeof(Startup).Assembly.GetName().Name)));
 
-            services.AddScoped<UserService, UserServiceImpl>();
+            //services.AddScoped<UserService, UserServiceImpl>();
             services.AddScoped<RepoService, RepoServiceImpl>();
             services.AddScoped<PermissionService, PermissionServiceImpl>();
             services.AddScoped<LogService, LogServiceImpl>();
