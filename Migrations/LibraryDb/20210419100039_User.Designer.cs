@@ -9,7 +9,7 @@ using RfidAPI.Data;
 namespace RfidAPI.Migrations.LibraryDb
 {
     [DbContext(typeof(LibraryDbContext))]
-    [Migration("20210415124821_User")]
+    [Migration("20210419100039_User")]
     partial class User
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -127,6 +127,9 @@ namespace RfidAPI.Migrations.LibraryDb
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("deviceName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("imageUrl")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("nowCount")

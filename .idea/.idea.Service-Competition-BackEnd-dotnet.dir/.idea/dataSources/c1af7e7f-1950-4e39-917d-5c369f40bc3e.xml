@@ -1682,119 +1682,123 @@ Name</ColNames>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="568" parent="177" name="PK_DeviceCount">
+    <column id="568" parent="177" name="imageUrl">
+      <Position>5</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <key id="569" parent="177" name="PK_DeviceCount">
       <ColNames>deviceCountId</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="569" parent="178" name="LogId">
+    <column id="570" parent="178" name="LogId">
       <Position>1</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="570" parent="178" name="from_UserId">
+    <column id="571" parent="178" name="from_UserId">
       <Position>2</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="571" parent="178" name="to_UserId">
+    <column id="572" parent="178" name="to_UserId">
       <Position>3</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="572" parent="178" name="status">
+    <column id="573" parent="178" name="status">
       <Position>4</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="573" parent="178" name="requestStatus">
+    <column id="574" parent="178" name="requestStatus">
       <Position>5</Position>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="574" parent="178" name="log">
+    <column id="575" parent="178" name="log">
       <Position>6</Position>
       <DataType>TEXT|0s</DataType>
     </column>
-    <column id="575" parent="178" name="from_time">
+    <column id="576" parent="178" name="from_time">
       <Position>7</Position>
       <DataType>TEXT|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="576" parent="178" name="to_time">
+    <column id="577" parent="178" name="to_time">
       <Position>8</Position>
       <DataType>TEXT|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="577" parent="178" name="IX_Log_from_UserId">
+    <index id="578" parent="178" name="IX_Log_from_UserId">
       <ColNames>from_UserId</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <index id="578" parent="178" name="IX_Log_to_UserId">
+    <index id="579" parent="178" name="IX_Log_to_UserId">
       <ColNames>to_UserId</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="579" parent="178" name="PK_Log">
+    <key id="580" parent="178" name="PK_Log">
       <ColNames>LogId</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="580" parent="178" name="FK_Log_AspNetUsers_from_UserId">
+    <foreign-key id="581" parent="178" name="FK_Log_AspNetUsers_from_UserId">
       <ColNames>from_UserId</ColNames>
       <RefTableName>AspNetUsers</RefTableName>
       <RefKeyName>PK_AspNetUsers</RefKeyName>
       <RefColNames>Id</RefColNames>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <foreign-key id="581" parent="178" name="FK_Log_AspNetUsers_to_UserId">
+    <foreign-key id="582" parent="178" name="FK_Log_AspNetUsers_to_UserId">
       <ColNames>to_UserId</ColNames>
       <RefTableName>AspNetUsers</RefTableName>
       <RefKeyName>PK_AspNetUsers</RefKeyName>
       <RefColNames>Id</RefColNames>
       <OnDelete>restrict</OnDelete>
     </foreign-key>
-    <column id="582" parent="179" name="MigrationId">
+    <column id="583" parent="179" name="MigrationId">
       <Position>1</Position>
       <DataType>TEXT|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="583" parent="179" name="ProductVersion">
+    <column id="584" parent="179" name="ProductVersion">
       <Position>2</Position>
       <DataType>TEXT|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="584" parent="179" name="sqlite_autoindex___EFMigrationsHistory_1">
+    <index id="585" parent="179" name="sqlite_autoindex___EFMigrationsHistory_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>MigrationId</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="585" parent="179" name="PK___EFMigrationsHistory">
+    <key id="586" parent="179" name="PK___EFMigrationsHistory">
       <ColNames>MigrationId</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>sqlite_autoindex___EFMigrationsHistory_1</UnderlyingIndexName>
     </key>
-    <column id="586" parent="180" name="type">
+    <column id="587" parent="180" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="587" parent="180" name="name">
+    <column id="588" parent="180" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="588" parent="180" name="tbl_name">
+    <column id="589" parent="180" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="589" parent="180" name="rootpage">
+    <column id="590" parent="180" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="590" parent="180" name="sql">
+    <column id="591" parent="180" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="591" parent="181" name="name">
+    <column id="592" parent="181" name="name">
       <Position>1</Position>
     </column>
-    <column id="592" parent="181" name="seq">
+    <column id="593" parent="181" name="seq">
       <Position>2</Position>
     </column>
   </database-model>

@@ -8,7 +8,7 @@ using RfidAPI.Data;
 namespace RfidAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210415124348_lol")]
+    [Migration("20210419095343_lol")]
     partial class lol
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

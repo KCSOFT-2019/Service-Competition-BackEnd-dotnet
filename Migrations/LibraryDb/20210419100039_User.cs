@@ -55,7 +55,8 @@ namespace RfidAPI.Migrations.LibraryDb
                         .Annotation("Sqlite:Autoincrement", true),
                     deviceName = table.Column<string>(type: "TEXT", nullable: true),
                     nowCount = table.Column<int>(type: "INTEGER", nullable: false),
-                    totalCount = table.Column<int>(type: "INTEGER", nullable: false)
+                    totalCount = table.Column<int>(type: "INTEGER", nullable: false),
+                    imageUrl = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -111,8 +112,23 @@ namespace RfidAPI.Controllers
             return Ok(new
             {
                 token = new JwtSecurityTokenHandler().WriteToken(jwtToken),
+                
                 expiration = TimeZoneInfo.ConvertTimeFromUtc(jwtToken.ValidTo, TimeZoneInfo.Local)
             });
+            
+            
+            
         }
+        
+        [Authorize]
+        [HttpGet("info")]
+        public async Task<IUser> GetInfo()
+        {
+            var name =  HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            //var name = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var user = UserManager.FindByNameAsync(name);
+            return await user;
+        }
+        
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -18,7 +19,7 @@ namespace RfidAPI.Service
             _Context = dataContext;
         }
 
-        public bool addDevice(string deviceName)
+        public bool addDevice(string deviceName, string url)
         {
            
             var device = _Context.DeviceCounts.SingleOrDefault(s => s.deviceName == deviceName);
@@ -29,7 +30,8 @@ namespace RfidAPI.Service
                     deviceCountId = null,
                     deviceName = deviceName,
                     nowCount = 1,
-                    totalCount = 1
+                    totalCount = 1,
+                    imageUrl = url
                 });
                 
 
@@ -54,6 +56,14 @@ namespace RfidAPI.Service
         public async Task<ActionResult<IEnumerable<DeviceCount>>> getAllDiviceCount()
         {
             return await _Context.DeviceCounts.ToListAsync();
+        }
+        
+        public async Task<ActionResult<IEnumerable<DeviceCount>>> getDiviceCountByName(string name)
+        {
+            
+            
+            /*var device = _Context.DeviceCounts.Find().ToList();*/ //SingleOrDefault(s => s.deviceName == name);
+            return await _Context.DeviceCounts.Where(b => b.deviceName.Contains(name)).ToListAsync();
         }
     }
 }

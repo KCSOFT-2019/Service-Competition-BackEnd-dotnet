@@ -24,9 +24,9 @@ namespace RfidAPI.Controllers
         }
 
         [HttpPost("api/deviceCount/add")]
-        public ActionResult<string> add(string deviceName)
+        public ActionResult<string> add(string deviceName, string url)
         {
-            var res = _deviceCountService.addDevice(deviceName);
+            var res = _deviceCountService.addDevice(deviceName, url);
             if (res)
             {
                 return "设备数量添加成功";
@@ -37,6 +37,11 @@ namespace RfidAPI.Controllers
             }
         }
         
+        [HttpPost("api/deviceCount/name")]
+        public async Task<ActionResult<IEnumerable<DeviceCount>>> GetByName([FromBody]string name)
+        {
+            return await _deviceCountService.getDiviceCountByName(name);
+        }
         
     }
 }

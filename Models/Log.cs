@@ -8,9 +8,9 @@ namespace RfidAPI.Models
     
     public enum RequestStatus
     {
-        ok,
-        no,
-        notYet
+        ok,//已同意
+        no,//已拒绝
+        notYet//还未处理
         
     }
     [Table("Log")]

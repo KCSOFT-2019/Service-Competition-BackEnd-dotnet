@@ -13,6 +13,10 @@ namespace RfidAPI.Models
         public int nowCount { get; set; }
         
         public int totalCount { get; set; }
+        
+        public string imageUrl { get; set; }
+        
+        
         [ForeignKey("deviceName")] public virtual Equipment equip { get; }
     }
 }

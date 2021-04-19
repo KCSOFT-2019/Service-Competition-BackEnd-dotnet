@@ -127,6 +127,9 @@ namespace RfidAPI.Migrations.LibraryDb
                     b.Property<string>("deviceName")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("imageUrl")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("nowCount")
                         .HasColumnType("INTEGER");
 

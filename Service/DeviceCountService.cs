@@ -7,8 +7,10 @@ namespace RfidAPI.Service
 {
     public interface DeviceCountService
     {
-        bool addDevice(string deviceName);
+        bool addDevice(string deviceName, string url);
         
         Task<ActionResult<IEnumerable<DeviceCount>>> getAllDiviceCount();
+        
+        Task<ActionResult<IEnumerable<DeviceCount>>> getDiviceCountByName(string name);
     }
 }

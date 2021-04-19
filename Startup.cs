@@ -71,6 +71,7 @@ namespace RfidAPI
                 })
                 .AddJwtBearer(c =>
                 {
+                    c.SaveToken = true;
                     c.TokenValidationParameters = new TokenValidationParameters
                     {
                         

@@ -89,12 +89,8 @@ namespace RfidAPI.Controllers
             {
                 unsafe
                 {
-
-
                     IntPtr point = Marshal.AllocCoTaskMem(sizeof(ArcFaceEngine.ASF_ActiveFileInfo));
-
                     FaceEngineAPI.ASFGetActiveFileInfo(point);
-
                     var file = (ArcFaceEngine.ASF_ActiveFileInfo) Marshal.PtrToStructure(point, typeof(ArcFaceEngine.ASF_ActiveFileInfo));
                     var sdkver =  Marshal.PtrToStringAnsi(file.sdkVersion);
                     Marshal.FreeCoTaskMem(point);
